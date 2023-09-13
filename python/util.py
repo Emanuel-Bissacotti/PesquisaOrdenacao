@@ -63,11 +63,16 @@ class Util:
         # print("Tempo de processamento do Inserção: ", (tempoFim - tempoInicio) , "s")        
         # # Util.exibir_lista(listas[3])
 
-        tempoInicio = time.time()
-        Ordenacao.pente(listas[1])
-        tempoFim = time.time()
-        print("Tempo de processamento do pente: ", (tempoFim - tempoInicio) , "s")        
+        # tempoInicio = time.time()
+        # Ordenacao.pente(listas[1])
+        # tempoFim = time.time()
+        # print("Tempo de processamento do pente: ", (tempoFim - tempoInicio) , "s")        
         # Util.exibir_lista(listas[1])
-        
+
+        tempoInicio = time.time()
+        Ordenacao.quickSort(listas[1], 0 ,len(listas[1])-1)
+        tempoFim = time.time()
+        print("Tempo de processamento do quickSort: ", (tempoFim - tempoInicio) , "s")  
+        Util.exibir_lista(listas[1])
 
         

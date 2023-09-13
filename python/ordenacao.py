@@ -55,7 +55,42 @@ class Ordenacao:
                     tmp = lista[i]
                     lista[i] = lista[i+distancia]
                     lista[i+distancia] = tmp
-            
+
+
+    @staticmethod
+    def particiona(lista, ini, fim):
+        pivo = ini # na bibliografia do método, é possível ser o ini, o fim ou uma posição sorteada
+        while (fim > ini):
+            while (fim > pivo and lista[fim] > lista[pivo]):
+                fim = fim - 1
+
+            if (fim > pivo):
+                tmp = lista[pivo]
+                lista[pivo] = lista[fim]
+                lista[fim] = tmp
+                pivo = fim
+
+            ini = ini + 1
+            while (ini < pivo and lista[ini] < lista[pivo]):
+                ini = ini + 1
+
+            if (ini < pivo):
+                tmp = lista[pivo]
+                lista[pivo]= lista[ini]
+                lista[ini] = tmp
+                pivo = ini
+                
+        return pivo
+
+    @staticmethod
+    def quickSort(lista, ini, fim):
+        pivo = Ordenacao.particiona(lista, ini, fim);
+        
+        if (ini < pivo - 1):
+            Ordenacao.quickSort(lista, ini, pivo - 1) # se existe lado esq do pivo, executa lado esq
+
+        if (pivo + 1 < fim):
+            Ordenacao.quickSort(lista, pivo + 1, fim) # se existe lado dir do pivo, executa lado dir
 
        
    
